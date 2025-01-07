@@ -1,0 +1,52 @@
+<app-header title="Instrukcja" class="header">
+    <app-icon-btn icon="back" (click)="closeEvent.emit()"></app-icon-btn>
+</app-header>
+
+<div class="menu">
+    
+    <div class="item">
+        <p>Kliknij i przytrzymaj okno zadania, a następnie przeciągnij je w górę lub w dół. W ten sposób możesz sortować zadania. Ta funkcja działa tylko jeśli wszystkie okna nie są rozwinięte.</p>
+        <app-icon-btn class="icon" icon="smartphone"></app-icon-btn>
+    </div>
+    
+    <div class="item">
+        <p>Aby dodać nowe zadanie wciśnij tę ikone w prawym dolnym rogu i wypełnij formularz dodawania</p>
+        <app-icon-btn class="icon" icon="add" color="pink"></app-icon-btn>
+    </div>
+
+    <div class="item">
+        <p>Kliknij ciemne okno zadania aby je rozwinąć. Zobaczysz tam etapy zadania lub przycisk edycji.</p>
+        <app-icon-btn class="icon" icon="list" color="green"></app-icon-btn>
+    </div>
+
+    <div class="item">
+        <p>W każdej chwili możesz edytować treść i parametry zadania. W tym celu kliknij tę ikonę.</p>
+        <app-icon-btn class="icon" icon="edit"></app-icon-btn>
+    </div>
+    
+    <div class="item">
+        <p>Ta ikona oznacza, że zadanie lub jego etap nie jest ukończony. Kliknij ją przy zadaniu/etapie aby oznaczyć jako ukończony.</p>
+        <app-icon-btn class="icon" icon="error" color="blue"></app-icon-btn>
+    </div>
+    
+    <div class="item">
+        <p>Ta ikona oznacza, że zadanie lub jego etap jest ukończony. Kliknij ją przy zadaniu/etapie aby oznaczyć jako nie ukończony.</p>
+        <app-icon-btn class="icon" icon="ok" color="green"></app-icon-btn>
+    </div>
+    
+    <div class="item">
+        <p>Aby usunąć zadanie kliknij i przytrzymaj jego okno, a następnie przesuń mocno w prawo lub lewo.</p>
+        <app-icon-btn class="icon" icon="remove" color="red"></app-icon-btn>
+    </div>
+    
+    <div class="item">
+        <p>Możesz oznaczyć zadanie jako ważne klikając tę ikonę.</p>
+        <app-icon-btn class="icon" icon="important" color="yellow"></app-icon-btn>
+    </div>
+    
+    <div class="item back" (click)="tasksEvent.emit()">
+        <p class="back">Wróć do zadań</p>
+        <app-icon-btn class="icon" icon="back"></app-icon-btn>
+    </div>
+    
+</div>

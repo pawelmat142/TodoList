@@ -1,0 +1,76 @@
+
+<app-login-form
+    class="page"
+    *ngIf="pages.loginForm.active"
+    [ngClass]="pages.loginForm.class"
+    (loginEvent)="login()"
+    (toRegisterForm)="pageFromTo('loginForm', 'registerForm', 'next')"
+></app-login-form>
+    
+
+<app-register-form
+    class="page"
+    *ngIf="pages.registerForm.active"
+    [ngClass]="pages.registerForm.class"
+    (closeEvent)="pageFromTo('registerForm', 'loginForm', 'back')"
+></app-register-form>
+
+
+<app-menu
+    class="page"
+    *ngIf="pages.menu.active"
+    [ngClass]="pages.menu.class"
+    (closeEvent)="pageFromTo('menu', 'tasksBoard', 'back')"
+    (logoutEvent)="logout()"
+    (addTaskEvent)="pageFromTo('menu', 'addForm', 'next')"
+    (manualEvent)="pageFromTo('menu', 'manual', 'next')"
+></app-menu>
+
+
+<app-manual
+    class="page"
+    *ngIf="pages.manual.active"
+    [ngClass]="pages.manual.class"
+    (closeEvent)="pageFromTo('manual', 'menu', 'back')"
+    (tasksEvent)="pageFromTo('manual', 'tasksBoard', 'back')"
+></app-manual>
+    
+
+<app-tasks-board
+    class="page"
+    *ngIf="pages.tasksBoard.active"
+    [ngClass]="pages.tasksBoard.class"
+    (menuEvent)="pageFromTo('tasksBoard', 'menu', 'next')"
+    (fistTaskEvent)="pageFromTo('tasksBoard', 'addForm', 'next')"
+    (editEvent)="pageFromTo('tasksBoard', 'editForm', 'next')"
+></app-tasks-board>
+    
+    
+<app-adding-form
+    class="page"
+    *ngIf="pages.addForm.active"
+    [ngClass]="pages.addForm.class"
+    (addEvent)="addTask()"
+    (backEvent)="pageFromTo('addForm', 'tasksBoard', 'back')"
+></app-adding-form>
+    
+
+<app-edit-form
+    class="page"
+    *ngIf="pages.editForm.active"
+    [ngClass]="pages.editForm.class"
+    (backEvent)="pageFromTo('editForm', 'tasksBoard', 'back')"
+></app-edit-form>
+
+
+<app-dialog></app-dialog>
+
+    
+<app-icon-btn 
+    *ngIf="pages.tasksBoard.active"
+    class="add-task-btn"
+    icon="add"
+    color="pink"
+    (click)="onButton()"
+></app-icon-btn>
+

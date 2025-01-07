@@ -1,0 +1,72 @@
+<app-header title="Dodaj zadanie">
+    <app-icon-btn icon="back" (click)="backEvent.emit()"></app-icon-btn>
+</app-header>
+
+<form 
+    class="item"
+    [formGroup]="addingForm" 
+    (ngSubmit)="onSubmit()" 
+    (keyup.escape)="addingForm.reset()"
+    (focusout)="onFocusout()"
+>
+
+    <div>
+        <label>Treść zadania</label>
+        <input type="text" formControlName="name" autocomplete="off"/>
+        <div *ngIf="f.name.touched && f.name.errors" >
+            <app-icon-btn class="icon" icon="error" color="red"></app-icon-btn>
+            <p *ngIf="f.name.errors.required">Nazwa jest wymagana</p>
+            <p *ngIf="f.name.errors.maxlength">Maksymalnie 100 znaków</p>
+        </div>
+    </div>
+
+    
+    <div>
+        <label>Data ukończenia</label>
+        <input type="date" formControlName="deadline" autocomplete="off"/>
+        <div>
+            <app-icon-btn 
+                *ngIf="f.deadline.value"
+                class="icon" 
+                icon="error" 
+                color="red"
+                (click)="f.deadline.setValue('')"
+            ></app-icon-btn>
+        </div>
+    </div>
+    
+    
+    <!-- subtasks -->
+    
+    <div *ngFor="let number of subtasks" class="subtask">
+        <label>Etap {{number}}</label>
+        <input 
+            type="text" 
+            formControlName={{subtaskName(number)}}
+            #subtaskInputReference
+        >
+        <div>
+            <app-icon-btn 
+                class="icon" 
+                icon="error" 
+                color="red" 
+                (click)="$event.preventDefault();removeSubtask(number)"
+            ></app-icon-btn>
+            <p *ngIf="f[subtaskName(number)]?.touched && 
+                f[subtaskName(number)].errors?.maxlength">
+                Maksymalnie 50 znaków
+            </p>
+            <p *ngIf=" f[subtaskName(number)]?.touched && 
+                f[subtaskName(number)].errors?.required">
+                Uzupełnij lub usuń pole
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <button type="button" class="subtask" (click)="addSubtask()">Dodaj etap</button>
+    </div>
+
+    <button [disabled]="addingForm.invalid">Dodaj Zadanie</button>
+
+</form>

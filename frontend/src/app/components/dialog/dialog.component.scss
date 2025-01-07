@@ -1,0 +1,82 @@
+:host {
+    z-index: 200;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    width: 80%;
+    background-color:#080a0bee;
+    border-radius: 0.4em;
+    padding: 1em;
+    
+    transform: translate(-50%, 0) scale(0);
+    visibility: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+    color: #fff;
+    font-size: 25px;
+    font-family: sans-serif;
+    text-align: center;
+        
+    div {
+        height: 150px;
+        border-radius: 0.4em;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+    }
+    
+    
+    form {
+        width: 100%;
+    }
+    
+    &.active {
+        animation: show .15s ease-in-out forwards;
+    }
+    
+    &.active.hide {
+        animation: hide .15s ease-in-out forwards;
+    }
+}
+
+@keyframes show {
+    0% { 
+        visibility: hidden;
+    }
+    1% { 
+        visibility: visible;
+        transform: translate(-50%, 0) scale(0);
+    }
+    100% { 
+        visibility: visible;
+        transform: translate(-50%, 0) scale(1);
+    }
+}
+
+@keyframes hide {
+    0% { 
+        visibility: visible;
+        transform: translate(-50%, 0) scale(1);
+    }
+    99% { 
+        visibility: visible;
+        transform: translate(-50%, 0) scale(0);
+    }
+    100% { 
+        visibility: hidden;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    :host {
+        min-width: 380px;
+        max-width: 1000px;
+        width: 25vw;
+        top: 20vh;
+    }
+}

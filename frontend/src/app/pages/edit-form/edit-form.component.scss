@@ -1,0 +1,14 @@
+:host {
+    z-index: 101;
+}
+
+
+form {
+    .icon {
+        right: 12px;
+        &.two { right: 45px}
+    }
+    input {
+        padding-right: 4em;
+    }
+}

@@ -1,0 +1,139 @@
+@import "../../../assets/variables.scss";
+
+:host {
+    position: relative;
+    color: #fffc;
+    transition: .2s ease;
+}
+
+:host-context(.pressed) {
+    .task {
+        background-color: black;
+    }
+}
+
+:host-context(.active) {
+    .task {
+        background-color: #b342d07e;
+    }
+}
+
+
+.task {
+    padding: .6em 4%;
+    min-height: 65px;
+    background-color: #080a0bda;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
+    border-radius: .4em;
+    display: grid;
+    align-items: center;
+    user-select: none;
+    transition: background-color .1s ease;
+    font-size: 16px;
+
+    .task-row {
+
+        display: grid;
+        grid-template-columns: 8fr 2fr 1fr;
+        align-items: center;
+        align-self: center;
+        gap: .5em;
+        
+        .deadline {
+            text-align: center;
+        }
+    
+        .icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+
+        }
+        
+        .button {
+            font-size: 1.3em;
+            display: grid;
+            align-self: right;
+        }
+
+
+        .remove {
+            display: none;
+        }
+
+    }
+
+    .task-row.hidden {
+
+        align-items: flex-start;
+        
+        transition: .15s ease;
+        font-size: 0;
+        padding-top: 0;
+        
+        .button {
+            font-size: inherit;
+        }
+
+        .subtasks {
+
+            div {
+                display: flex;
+                align-items: center;
+                gap: .5em;
+                padding-top: 6px;
+                transition: .15s ease-in-out;
+
+                p {
+                    padding-left: .5em;
+                }
+            }
+
+        }
+
+    }
+    
+}
+
+.task.show {
+    background-color: black;
+    
+    .task-row.hidden {
+        padding-top: .5em;
+        font-size: inherit;
+
+        .subtasks {
+            .div {
+                padding-top: 0;
+            }
+        }
+    }
+}
+
+:host(.important) {
+    .task {
+        border: 2px solid #ff00cf;
+    }
+}
+
+@media screen and (min-width: 767px) {
+
+    .task {
+
+        padding: .6em 2% .6em 4%;
+
+        &:hover {background-color: #0f181dbd;}
+
+        .task-row{
+
+            grid-template-columns: 10fr 2fr 1fr 1fr;
+
+            .remove {
+                font-size: 1.2em;
+                display: grid;
+            }
+        }
+    }
+
+}

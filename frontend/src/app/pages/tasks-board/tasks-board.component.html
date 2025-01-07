@@ -1,0 +1,32 @@
+<app-header title="Lista zadań" class="header">
+  <app-icon-btn icon="menu" (click)="menuEvent.emit()"></app-icon-btn>
+</app-header>
+
+<div 
+  class="tasks"
+  (touchend)="onStop()"
+  (touchmove)="isActive && $event.preventDefault(); onMove($event.changedTouches[0].pageX, $event.changedTouches[0].pageY)"
+  (mouseup)="!isMobile() && onStop()"
+  (mousemove)="onMove($event.pageX, $event.pageY)"
+  >
+
+    <p *ngIf="!tasks.length" class="item task" (click)="fistTaskEvent.emit()">Dodaj pierwsze zadanie</p>
+  
+    <app-task
+      *ngFor="let task of tasks; let i = index"
+      class="item"
+      [ngClass]="classes(i)"
+      [task]="task" 
+      [index]="i"
+      [ngStyle]="isActive && action.i === i && activeStyles()"
+      [ngStyle]="action.iToSkip.includes(i) && skipStyles(i)"
+      [ngStyle]="stopTransition && {'transition': 'unset'}"
+
+      (deleteEvent)="removeTask(i)"
+      (editEvent)="editEvent.emit()"
+            
+      (touchstart)="onStart($event.changedTouches[0].pageX, $event.changedTouches[0].pageY, i)"
+      (mousedown)="!isMobile() && onStart($event.pageX, $event.pageY, i)"
+    ></app-task>
+
+</div>

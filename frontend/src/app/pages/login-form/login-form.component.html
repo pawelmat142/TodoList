@@ -1,0 +1,39 @@
+<app-header title="Zaloguj się">
+</app-header>
+
+<form 
+    class="item"
+    [formGroup]="loginForm" 
+    (ngSubmit)="onSubmit()" 
+    (keyup.escape)="loginForm.reset()"
+>
+
+    <div>
+        <label>Nick</label>
+        <input type="text" formControlName="nickname" autocomplete="off"/>
+        <div *ngIf="f.nickname.touched && f.nickname.errors" >
+            <app-icon-btn class="icon" icon="error" color="red"></app-icon-btn>
+            <p *ngIf="f .nickname.errors.required">Nick jest wymagany</p>
+            <p *ngIf="f.nickname.errors.minlength">Nick musi zawierać przynajmniej 4 znaki</p>
+        </div>
+    </div>
+    
+    <div>
+        <label>Hasło</label>
+        <input type="password" formControlName="password" autocomplete="off"/>
+        <div *ngIf="f.password.touched && f.password.errors" >
+            <app-icon-btn class="icon" icon="error" color="red"></app-icon-btn>
+            <p *ngIf="f.password.errors.required">Hasło jest wymagane</p>
+            <p *ngIf="f.password.errors.minlength">Hasło musi zawierać conajmniej 4 znaki</p>
+        </div>
+    </div>
+    
+    <button [disabled]="loginForm.invalid">Zaloguj</button>
+
+    <button type="button" class="item" (click)="toRegisterForm.emit()">Rejestracja</button>
+
+</form>
+
+
+<p class="message red item" *ngIf="errorMsg">{{errorMsg}}</p>
+<p class="message item" *ngIf="message">{{message}}</p>

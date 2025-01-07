@@ -1,0 +1,53 @@
+<app-header title="Menu" class="header">
+    <app-icon-btn icon="back" (click)="closeEvent.emit()"></app-icon-btn>
+</app-header>
+
+<div class="menu">
+    
+    <div class="item" (click)="logoutEvent.emit()">
+        <p>Wyloguj</p>
+        <app-icon-btn icon="logout"></app-icon-btn>
+    </div>
+
+    <div class="item" (click)="manualEvent.emit()">
+        <p>Instrukcja</p>
+        <app-icon-btn icon="notes" color="blue"></app-icon-btn>
+    </div>
+    
+    <div class="item" (click)="addTaskEvent.emit()">
+        <p>Dodaj zadanie</p>
+        <app-icon-btn icon="add" color="pink"></app-icon-btn>
+    </div>
+    
+    <div class="item" (click)="showNotDone()">
+        <p>Pokaż nieukończone</p>
+        <app-icon-btn icon="error" color="blue"></app-icon-btn>
+    </div>
+    
+    <div class="item" (click)="showDone()">
+        <p>Pokaż skończone</p>
+        <app-icon-btn icon="ok" color="green"></app-icon-btn>
+    </div>
+    
+    <div class="item" (click)="showAll()">
+        <p>Pokaż wszystkie</p>
+        <div>
+            <app-icon-btn icon="ok" color="green"></app-icon-btn>
+            <app-icon-btn icon="error" color="blue"></app-icon-btn>
+        </div>
+    </div>
+    
+    <div class="item" (click)="deleteAll()">
+        <p>Usuń wszystkie</p>
+        <app-icon-btn icon="remove" color="red"></app-icon-btn>
+    </div>
+    
+    <div class="item" (click)="deleteAllDone()">
+        <p>Usuń ukończone</p>
+        <div>
+            <app-icon-btn icon="ok" color="green"></app-icon-btn>
+            <app-icon-btn icon="remove" color="red"></app-icon-btn>
+        </div>
+    </div>
+    
+</div>

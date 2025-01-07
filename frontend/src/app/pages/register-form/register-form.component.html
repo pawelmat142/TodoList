@@ -1,0 +1,57 @@
+<app-header title="Rejestracja">
+    <app-icon-btn icon="back" (click)="closeEvent.emit()"></app-icon-btn>
+</app-header>
+
+
+<form 
+    class="item"
+    [formGroup]="registerForm" 
+    (ngSubmit)="onSubmit()" 
+    (keyup.escape)="registerForm.reset()"
+>
+
+    <div>
+        <label>Nick</label>
+        <input type="text" formControlName="nickname" autocomplete="off"/>
+        <div *ngIf="f.nickname.touched && f.nickname.errors" >
+            <app-icon-btn class="icon" icon="error" color="red"></app-icon-btn>
+            <p *ngIf="f.nickname.errors.required">Nick jest wymagany</p>
+            <p *ngIf="f.nickname.errors.minlength">Nick musi zawierać przynajmniej 4 znaki</p>
+        </div>
+    </div>
+    
+    <div>
+        <label>Hasło</label>
+        <input type="password" formControlName="password" autocomplete="off"/>
+        <div *ngIf="f.password.touched && f.password.errors" >
+            <app-icon-btn class="icon" icon="error" color="red"></app-icon-btn>
+            <p *ngIf="f.password.errors.required">Hasło jest wymagane</p>
+            <p *ngIf="f.password.errors.minlength">Hasło musi zawierać conajmniej 4 znaki</p>
+        </div>
+    </div>
+    
+    <div>
+        <label>Powtórz hasło</label>
+        <input type="password" formControlName="confirmPassword" autocomplete="off"/>
+        <div *ngIf="f.confirmPassword.touched && f.confirmPassword.errors">
+            <app-icon-btn class="icon" icon="error" color="red"></app-icon-btn>
+            <p *ngIf="f.confirmPassword.errors.required">Potwierdź hasło</p>
+            <p *ngIf="f.confirmPassword.errors.mustMatch">Hasło się nie zgadza</p>
+        </div>
+    </div>
+
+    <div>
+        <label>Email - opcjonalnie</label>
+        <input type="text" formControlName="email" autocomplete="off"/>
+        <div *ngIf="f.email.touched && f.email.errors">
+            <app-icon-btn class="icon" icon="error" color="red"></app-icon-btn>
+            <p *ngIf="f.email.errors.email">Podaj poprawny adres email</p>
+        </div>
+    </div>
+
+    <button class="item" [disabled]="registerForm.invalid">Zarejestruj</button>
+
+</form>
+
+<p class="message red item" *ngIf="errorMsg">{{errorMsg}}</p>
+<p class="message item" *ngIf="message">{{message}}</p>

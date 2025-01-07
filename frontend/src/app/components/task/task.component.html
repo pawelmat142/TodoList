@@ -1,0 +1,92 @@
+<div class="task" [ngClass]="showClass? 'show' : ''">
+
+    <div class="task-row">
+
+        <p class="content">{{task.name | limitTo : taskNameLimit}}</p>
+        
+        <p *ngIf="task.deadline" class="deadline">{{task.deadline | date: 'd MMM':'':'pl' }}</p>
+        <p *ngIf="!task.deadline" class="deadline">---</p>
+        
+        <app-icon-btn 
+            class="button"
+            [icon]="task.done? 'ok' : 'error'"
+            [color]="task.done? 'green' : 'blue'"
+            (click)="markAsDone()"
+            (touchstart)="$event.stopPropagation()"
+            (touchend)="$event.stopPropagation()"
+            (mouseup)="$event.stopPropagation()"
+            (mousedown)="$event.stopPropagation()"
+        ></app-icon-btn>
+
+    </div>
+    
+    <div class="task-row hidden" *ngIf="visible">
+
+        <div class="subtasks">
+
+            <p *ngIf="!subtasks">Brak etapów</p>
+
+            <div 
+                *ngFor="let subtask of subtasks; let i = index"
+                (click)="markSubtaskAsDone(i)"
+                (touchstart)="$event.stopPropagation()"
+                (touchend)="$event.stopPropagation()"
+                (mouseup)="$event.stopPropagation()"
+                (mousedown)="$event.stopPropagation()"
+            >
+                <app-icon-btn 
+                    class="button"
+                    [icon]="subtask.done? 'ok' : 'error'"
+                    [color]="subtask.done? 'green' : 'blue'"
+                ></app-icon-btn>
+                
+                <p>{{subtask.name | limitTo : 50}}</p>
+                
+            </div>
+
+        </div>
+
+        <div *ngIf="task.deadline" class="deadline">{{task.deadline | date: 'yyyy':'':'pl' }}</div>
+        <div *ngIf="!task.deadline" class="deadline">---</div>
+
+        <div class="icons">
+
+            <app-icon-btn 
+                class="button" 
+                icon="edit" 
+                (click)="editTask()"
+                (touchstart)="$event.stopPropagation()"
+                (touchend)="$event.stopPropagation()"
+                (mouseup)="$event.stopPropagation()"
+                (mousedown)="$event.stopPropagation()"
+            ></app-icon-btn>
+
+            <app-icon-btn 
+                class="button" 
+                icon="remove"
+                color="red"
+                (click)="deleteTask()"
+                (touchstart)="$event.stopPropagation()"
+                (touchend)="$event.stopPropagation()"
+                (mouseup)="$event.stopPropagation()"
+                (mousedown)="$event.stopPropagation()"
+            ></app-icon-btn>
+
+            <app-icon-btn 
+                class="button" 
+                icon="important"
+                color="yellow"
+                (click)="markAsImportant()"
+                (touchstart)="$event.stopPropagation()"
+                (touchend)="$event.stopPropagation()"
+                (mouseup)="$event.stopPropagation()"
+                (mousedown)="$event.stopPropagation()"
+            ></app-icon-btn>
+
+        </div>
+        
+
+    </div>
+
+
+</div>
