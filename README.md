@@ -10,9 +10,9 @@ TodoList is a simple and lightweight To-Do List application, designed for both w
 
 ## Tech Stack
 
-#### Angular - more details in [./frontend](./frontend)
+#### Angular - more details in [./frontend](./frontend/README.md)
 
-#### Node.js - more details in [./backend](./backend)
+#### Node.js - more details in [./backend](./backend/README.md)
 
 #### MongoDB
 
