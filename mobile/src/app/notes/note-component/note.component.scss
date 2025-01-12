@@ -1,0 +1,70 @@
+ion-accordion-group {
+    margin-top: 7px;
+    background: var(--color-bg-main);
+    box-shadow: var(--color-bg-main) 1.95px 1.95px 2.6px;
+    border-radius: 0.4em;
+    transition: .15s ease-in-out;
+    &.important {
+        border: 1px solid var(--ion-color-warning);
+    }
+
+    ion-accordion {
+        background: transparent;
+        color: var(--ion-color-light);
+        
+        header {
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 10fr minmax(0, 2fr);
+            align-items: center;
+            width: 100%;
+            border-radius: 0.4em;
+    
+            .name {
+                padding: .9em 0;
+                padding-left: .8em;
+                width: 100%;
+                text-align: start;
+                display: flex;
+                align-items: center;
+            }
+
+        }
+    
+        .accordion {
+            .date {
+                padding-right: 1.2em;
+                padding-left: 1.2em;
+                font-size: .9em;
+                text-align: end;
+                margin-top: .3em;
+                margin-bottom: .3em;
+            }
+
+            ion-tab-bar,
+            ion-item,
+            ion-list {
+                background: transparent;
+                --background: transparent;
+            }
+            
+            ion-tab-bar {
+                border: 0;
+                border: 0;
+            }
+
+            ion-item {
+                margin-bottom: .7em;
+                text-indent: 1.8em;
+                --border-color: var(--ion-color-secondary-two);
+                --inner-padding-bottom: .7em;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    
+    }
+}

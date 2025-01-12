@@ -6,6 +6,8 @@ TodoList is a simple and lightweight To-Do List application, designed for both w
 
 ### Project web prototype runs [here](http://130.162.34.50:8002/).
 
+### About mobile app: [./mobile](./mobile/README.md)
+
 <br>
 
 ## Tech Stack

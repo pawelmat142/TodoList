@@ -9,10 +9,10 @@ This project is a classic To-Do List application, enhanced with a custom-built d
 
 ### The motivation behind creating this app was to:
 
-- <string>Learn the Angular Framework and TypeScript:</strong> Gain hands-on experience with Angular and deepen my knowledge of TypeScript.
+- <strong>Learn the Angular Framework and TypeScript:</strong> Gain hands-on experience with Angular and deepen my knowledge of TypeScript.
 
-- <string>Build an Authorization System Based on JWT:</strong> Develop a secure login system using JSON Web Tokens (JWT) for authentication.
+- <strong>Build an Authorization System Based on JWT:</strong> Develop a secure login system using <strong>JSON Web Tokens (JWT)</strong> for authentication.
 
-- <string>Learn RxJS:</strong> Understand the power of RxJS for managing asynchronous data flows and building more reactive, efficient applications.
+- <strong>Learn RxJS:</strong> Understand the power of RxJS for managing asynchronous data flows and building more reactive, efficient applications.
 
-- <string>HTML & CSS:</strong> Strengthen my foundational web development skills, focusing on crafting responsive and user-friendly interfaces 
+- <strong>HTML & CSS:</strong> Strengthen my foundational web development skills, focusing on crafting responsive and user-friendly interfaces 

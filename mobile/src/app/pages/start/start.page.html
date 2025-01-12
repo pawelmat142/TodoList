@@ -1,0 +1,15 @@
+<ion-header class="header-pink">
+  <ion-toolbar>
+    <ion-title color="light">Start</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scrollEvents="true">
+
+  <div class="center">
+    <img src="assets/icon/icon-white.svg" alt="icon">
+    <ion-button color="tertiary" size="large" [routerLink]="logged ? '/tasks' : '/users'">Rozpocznij</ion-button>
+    <ion-button class="ion-margin-top" fill="outline" color="danger" size="SMALL" (click)="exitApp()">Zamknij</ion-button>
+  </div>
+
+</ion-content>

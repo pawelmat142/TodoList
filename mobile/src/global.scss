@@ -1,0 +1,235 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    letter-spacing: .04em;
+    line-height: 1.2;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+
+// HEADER
+
+.header-pink {
+
+    ion-toolbar {
+        --background: linear-gradient(4deg,#7B25FB,#AC38FA);
+        --color: var(--ion-color-light);
+
+        ion-title {
+            font-weight: 600;
+            font-size: 26px;
+            padding-top: .5em;
+            padding-bottom: .5em;
+        }
+
+        img {
+            width: 38px;
+            height: 38px;
+            margin-left: .8em;
+        }
+    }
+}
+
+
+// CONTENT
+
+ion-content {
+    --background: 70px url(assets/bg-pattern.svg),#2b2f33 fixed 70px;
+    --padding-start: .5em;
+    --padding-end: .5em;
+    --padding-bottom: 100px;
+    --padding-top: 15px;
+}
+
+
+ion-item {
+    --background: transparent;
+    background: var(--color-bg-main);
+    border-radius: 0.4em;
+
+    &.msg {
+        margin-top: .6em;
+        padding-top: .6em;
+        padding-bottom: .6em;
+    }
+}
+
+.filter {
+    --backgroung: transparent;
+    background: transparent;
+    margin-bottom: -10px;
+    box-shadow: 0;
+    --box-shadow: 0;
+}
+
+
+// TILES
+
+
+.user-tile {
+    width: 100%;
+    margin-top: .8em;
+    height: 65px;
+    padding: 0 1.4em;
+    transition: .05s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-bg-main);
+    border-radius: 0.4em;
+    span {
+        font-size: 25px;
+        color: var(--ion-color-light);
+        letter-spacing: .1em;
+    }
+}
+
+
+// FOMRS
+
+.form-padding {
+    padding: 10px 2.5%;
+}
+
+form {
+    color: var(--ion-color-light);
+
+    ion-accordion {
+        background: transparent;
+        border-radius: 0.4em;
+
+        .content {
+            background: #080a0bbd;
+            padding-top: 0;
+        }
+
+        ion-icon {
+            color: var(--ion-color-secondary);
+        }
+
+        ion-datetime {
+            background: transparent;
+        }
+
+    }
+    
+}
+
+.bolder {
+    font-weight: 600;
+}
+
+.padding-right {
+    padding-right: .5em;
+}
+
+.form-message p {
+    width: 100%;
+    padding: .6em 0;
+    background: #080a0bbd;
+    border-radius: 0.4em;
+    box-shadow: #00000026 1.95px 1.95px 2.6px;
+    text-align: center;
+}
+
+.item-input {
+    margin-top: 7px;
+    border-radius: 0.4em;
+    box-shadow: #00000026 1.95px 1.95px 2.6px;
+
+    ion-input {
+        --color: var(--ion-color-light);
+    }
+
+    &.ios ion-buttons {
+        margin-top: 18px;
+    }
+    &.md ion-buttons {
+        margin-top: 11px;
+    }
+}
+
+.toggles-row {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: .8em;
+
+    ion-item {
+        border-radius: 0.4em;
+    }
+}
+
+// END FORMS
+
+
+
+// INTERFACES 
+
+// ALERT 
+.my-alert-wrapper .alert-wrapper {
+    background: var(--ion-color-dark);
+    color: var(--ion-color-secondary);
+
+    .alert-title,
+    .alert-button {
+        color: var(--ion-color-secondary);
+    }
+    
+    .alert-sub-title {
+        color: var(--ion-color-tertiary);
+    }
+
+    .alert-message {
+        color: var(--ion-color-light);
+    }
+}
+
+// TOAST
+.toast-wrapper {
+    --background: var(--ion-color-light);
+}
+
+.my-toast {
+    --background: var(--ion-color-light);
+    --color: var(--ion-color-dark);
+    color: var(--ion-color-dark);
+    text-align: center;
+    text-transform: uppercase;
+    // font-size: .8em;
+}
+
+ion-fab {
+    transition: .15s ease-in-out;
+    &.reorder {
+        transform: translateY(100px);
+    }
+}

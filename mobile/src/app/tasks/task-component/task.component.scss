@@ -1,0 +1,113 @@
+ion-accordion-group {
+    margin-top: 7px;
+    background: var(--color-bg-main);
+    box-shadow: var(--color-bg-main) 1.95px 1.95px 2.6px;
+    border-radius: 0.4em;
+    transition: .15s ease-in-out;
+    &.important {
+        border: 1px solid var(--ion-color-warning);
+    }
+
+    ion-accordion {
+        background: transparent;
+        color: var(--ion-color-light);
+        
+        header {
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 10fr 1fr minmax(0, 2fr);
+            align-items: center;
+            width: 100%;
+            border-radius: 0.4em;
+    
+            .name {
+                padding: .6em 0;
+                padding-left: .8em;
+                width: 100%;
+                text-align: start;
+                display: flex;
+                align-items: center;
+            }
+    
+            .deadline {
+                text-align: center;
+                font-size: .8em;
+            }
+
+            ion-list-header {
+                min-height: unset;
+            }
+
+            ion-button {
+                --padding-start: 0;
+                --padding-end: 0;
+            }
+        }
+
+        &.accordion-expanding header,
+        &.accordion-expanded header {
+            grid-template-columns: 1fr;
+            // padding: .6em 0;
+        }
+    
+        .accordion {
+            font-weight: 300;
+
+            ion-tab-bar {
+                --background: transparent;
+            }
+    
+            .deadline {
+                padding: 0em 1em .2em 0;
+                text-align: end;
+                font-size: .8em;
+            }
+    
+            // SUBTASKS
+            ion-item,
+            ion-list {
+                background: transparent;
+                --background: transparent;
+            }
+    
+            ion-list {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+            
+            ion-button {
+                width: 100%;
+                text-transform: none;
+                margin: 0;
+                white-space: unset;
+                --padding-top: .5em;
+                --padding-bottom: .5em;
+
+                &.subtask {
+                    height: unset;
+                }
+    
+                div {
+                    width: 100%;
+                    display: flex;
+                    align-items: flex-start;
+                    text-align: start;
+                    gap: .3em;
+                }
+    
+                ion-icon {
+                    padding-top: .1em;
+                    width: 8%;
+                }
+    
+                span {
+                    color: var(--ion-color-light);
+                    width: 100%;
+                }
+            }
+    
+        }
+    
+    }
+}
