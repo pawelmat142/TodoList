@@ -9,18 +9,13 @@ require('./db/Mongoose')
 const app = express()
 
 const corsOptions = {
-    origin: 'http://localhost:4200', // Zezwól na połączenia tylko z tej domeny
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Dozwolone metody HTTP
-    allowedHeaders: ['Content-Type', 'Authorization'],  // Dozwolone nagłówki
-};
-
-// Globalna konfiguracja CORS
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}
 app.use(cors(corsOptions))
-  
-// Obsługuje zapytania OPTIONS (Preflight Request)
 app.options('*', cors(corsOptions))
 
-// app.use(cors())
 app.use(express.static(path.join(__dirname, '/public')))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

@@ -4,7 +4,7 @@
 
 TodoList is a simple and lightweight To-Do List application, designed for both web and mobile platforms. It allows users to add, mark as completed, and delete tasks in an intuitive and user-friendly interface.
 
-### Project prototype runs [here](http://130.162.34.50:8002/).
+### Project web prototype runs [here](http://130.162.34.50:8002/).
 
 <br>
 
