@@ -38,7 +38,7 @@ npx cap sync ios
 - on your iOS device, go to <strong>Settings > General > Device Management,</strong> and trust your developer profile,
 - in Xcode, choose your connected device from the target device dropdown,
 - click the Run button in Xcode to build and install the app.
-
+    
 <br>
 
 
@@ -60,7 +60,8 @@ open your browser and go to `localhost:4200`
 
 ## Technologies
 Project is created with:
-* Ionic v6, Capacitor v3.6
+* Ionic v6,
+* Capacitor v3.6
 * Ionic Storage
 * Angular 13 
 

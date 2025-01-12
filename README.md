@@ -24,7 +24,7 @@ TodoList is a simple and lightweight To-Do List application, designed for both w
 
 - create project directory, get inside with terminal and run:
 ```
-git clone https://github.com/pawelmat142/book-agency.git ./
+git clone https://github.com/pawelmat142/TodoList.git ./
 ```
 - In terminal one open `./backend` and run:
 
